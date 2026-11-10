@@ -57,7 +57,21 @@ exports.updateUser=(req,res)=>{
 
         })      
 }
+//OR
+// exports.updateUser=(req,res)=>{
+//     const {consumer,cubic,amount,status,meter}=req.body;
+//     connection.query('UPDATE water_bills SET consumer_name=?,cubic_meters_used=?,total_amount=?,status=? WHERE meter_number=? ',[consumer,cubic,amount,status,meter],(err,result)=>{
+//         if(err) throw err;
+//         if(result.affectedRows>0)
+//             res.json({message:'User updated successfully'});
+//         else
+//             res.status(404).json({message:'User not found'});
+// });
+// }
 
+
+
+//delete
 exports.deleteUser=(req,res)=>{
     const { id } = req.body;
       connection.query('DELETE FROM `water-bills` WHERE id=?',[id],(err,result)=>{
